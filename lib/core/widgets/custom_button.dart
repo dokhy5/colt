@@ -1,5 +1,5 @@
+import 'package:colt_shop/constants.dart';
 import 'package:flutter/material.dart';
-import 'package:shop/constants.dart';
 
 class CustomButton extends StatelessWidget {
   const CustomButton({super.key, required this.onPressed, required this.text});

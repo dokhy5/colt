@@ -1,8 +1,11 @@
+import 'package:colt_shop/Features/sign_up/presentation/views/widgets/reset_prompt.dart';
+import 'package:colt_shop/core/utils/app_router.dart';
+import 'package:colt_shop/core/widgets/button_back_custom.dart';
+import 'package:colt_shop/core/widgets/custom_button.dart';
+import 'package:colt_shop/core/widgets/text_field_register.dart';
 import 'package:flutter/material.dart';
-import 'package:shop/Features/sign_up/presentation/views/widgets/reset_prompt.dart';
-import 'package:shop/core/widgets/button_back_custom.dart';
-import 'package:shop/core/widgets/custom_button.dart';
-import 'package:shop/core/widgets/text_field_register.dart';
+import 'package:go_router/go_router.dart';
+
 
 class SignupViewBody extends StatelessWidget {
   const SignupViewBody({super.key});
@@ -47,7 +50,9 @@ class SignupViewBody extends StatelessWidget {
         ),
         const SizedBox(height: 40),
 
-        CustomButton(onPressed: () {}, text: 'Continue'),
+        CustomButton(onPressed: () {
+           GoRouter.of(context).push(AppRouter.kOnboarding);
+        }, text: 'Continue'),
         const SizedBox(height: 40),
         const ResetPrompt()
       ],

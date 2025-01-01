@@ -1,10 +1,10 @@
 
+import 'package:colt_shop/Features/Splash/presentation/views/widgets/sliding_text.dart';
+import 'package:colt_shop/constants.dart';
+import 'package:colt_shop/core/utils/app_router.dart';
+import 'package:colt_shop/core/utils/assets.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:shop/Features/Splash/presentation/views/widgets/sliding_text.dart';
-import 'package:shop/constants.dart';
-import 'package:shop/core/utils/app_router.dart';
-import 'package:shop/core/utils/assets.dart';
 
 class SplashViewBody extends StatefulWidget {
   const SplashViewBody({super.key});

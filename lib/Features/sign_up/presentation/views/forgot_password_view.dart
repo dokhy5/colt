@@ -1,5 +1,5 @@
+import 'package:colt_shop/Features/sign_up/presentation/views/widgets/forgot_password_view_body.dart';
 import 'package:flutter/material.dart';
-import 'package:shop/Features/sign_up/presentation/views/widgets/forgot_password_view_body.dart';
 
 class ForgotPasswordView extends StatelessWidget {
   const ForgotPasswordView({super.key});

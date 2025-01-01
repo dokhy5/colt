@@ -1,7 +1,7 @@
 
+import 'package:colt_shop/constants.dart';
+import 'package:colt_shop/core/utils/app_router.dart';
 import 'package:flutter/material.dart';
-import 'package:shop/constants.dart';
-import 'package:shop/core/utils/app_router.dart';
 
 void main() {
   runApp(const MyApp());
