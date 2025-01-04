@@ -1,4 +1,5 @@
 import 'package:colt_shop/core/utils/app_router.dart';
+import 'package:colt_shop/core/utils/assets.dart';
 import 'package:colt_shop/core/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -16,8 +17,8 @@ class SendPasswordViewBady extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center, // Centers content horizontally
           children: [
             const SizedBox(height: 292),  // Adjust this height if necessary
-            const Image(
-              image: AssetImage('assets/images/image.png'),
+             Image(
+              image: AssetImage(AssetsData.prss),
               width: 100,
               height: 100,
             ),

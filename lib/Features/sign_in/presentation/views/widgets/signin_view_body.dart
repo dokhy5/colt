@@ -1,9 +1,11 @@
 import 'package:colt_shop/Features/sign_in/presentation/views/widgets/create_account_prompt.dart';
 import 'package:colt_shop/Features/sign_in/presentation/views/widgets/custom_Signin_button_methods.dart';
+import 'package:colt_shop/core/utils/app_router.dart';
 import 'package:colt_shop/core/utils/assets.dart';
 import 'package:colt_shop/core/widgets/custom_button.dart';
 import 'package:colt_shop/core/widgets/text_field_register.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 
 class SigninViewBody extends StatelessWidget {
@@ -40,7 +42,9 @@ class SigninViewBody extends StatelessWidget {
           const SizedBox(height: 16),
           CustomButton(
             text: 'Sign In',
-            onPressed: () {},
+            onPressed: () {
+              GoRouter.of(context).push(AppRouter.kHome);
+            },
           ),
           const SizedBox(height: 16,),
                     const CreateAccountPrompt(),

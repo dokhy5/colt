@@ -1,4 +1,5 @@
 import 'package:colt_shop/Features/Splash/presentation/views/splash_view.dart';
+import 'package:colt_shop/Features/home_page/presentation/views/home_view.dart';
 import 'package:colt_shop/Features/sign_in/presentation/views/signin_view.dart';
 import 'package:colt_shop/Features/sign_up/presentation/views/forgot_password_view.dart';
 import 'package:colt_shop/Features/sign_up/presentation/views/onboarding_view.dart';
@@ -13,6 +14,7 @@ abstract class AppRouter {
   static const kForgetPass = '/ForgotpasswordView';
   static const ksendpass = '/Sendpassword_View';
   static const kOnboarding = '/OnboardingView';
+  static const kHome = '/HomeView';
 
   static final GoRouter router = GoRouter(
     routes: [
@@ -39,6 +41,10 @@ abstract class AppRouter {
        GoRoute(
         path: kOnboarding,
         builder: (context, state) => const OnboardingView(),
+      ),
+       GoRoute(
+        path: kHome,
+        builder: (context, state) => const HomeView(),
       ),
     ],
   );
