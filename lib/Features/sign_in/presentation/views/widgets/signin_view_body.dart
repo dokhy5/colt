@@ -43,7 +43,7 @@ class SigninViewBody extends StatelessWidget {
           CustomButton(
             text: 'Sign In',
             onPressed: () {
-              GoRouter.of(context).push(AppRouter.kHome);
+              GoRouter.of(context).push(AppRouter.kTest);
             },
           ),
           const SizedBox(height: 16,),

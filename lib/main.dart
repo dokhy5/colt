@@ -1,6 +1,7 @@
 
 import 'package:colt_shop/constants.dart';
 import 'package:colt_shop/core/utils/app_router.dart';
+import 'package:colt_shop/core/widgets/test.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -20,6 +21,19 @@ class MyApp extends StatelessWidget {
         scaffoldBackgroundColor: Colors.white,
       ),
       debugShowCheckedModeBanner: false,
+      
     );
+    // return MaterialApp(
+    //   title: 'Colt Shop',
+    //   theme: ThemeData(
+    //     primarySwatch: Colors.blue,
+    //     visualDensity: VisualDensity.adaptivePlatformDensity,
+    //   ),
+    //   home: const Scaffold(
+    //     body: SafeArea(
+    //       child: BottomNavDashboard(),
+    //     ),
+    //   ),
+    // );
   }
 }
