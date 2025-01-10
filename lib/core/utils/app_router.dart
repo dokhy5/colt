@@ -1,4 +1,6 @@
 import 'package:colt_shop/Features/Splash/presentation/views/splash_view.dart';
+import 'package:colt_shop/Features/home_page/presentation/views/categories_item_view.dart';
+import 'package:colt_shop/Features/home_page/presentation/views/categories_view.dart';
 import 'package:colt_shop/Features/home_page/presentation/views/home_view.dart';
 import 'package:colt_shop/Features/sign_in/presentation/views/signin_view.dart';
 import 'package:colt_shop/Features/sign_up/presentation/views/forgot_password_view.dart';
@@ -17,6 +19,8 @@ abstract class AppRouter {
   static const kOnboarding = '/OnboardingView';
   static const kHome = '/HomeView';
   static const kTest = '/test';
+  static const kCategories = '/Categories_View';
+  static const kCategoriesItem = '/Categories_Item_View';
 
   static final GoRouter router = GoRouter(
     routes: [
@@ -53,8 +57,15 @@ abstract class AppRouter {
         builder: (context, state) {
           return const BottomNavDashboard();
         },
-      )
-
+      ),
+      GoRoute(
+        path: kCategories,
+        builder: (context, state) => const CategoriesView(),
+      ),
+      GoRoute(
+        path: kCategoriesItem,
+        builder: (context, state) => const CategoriesItemView(),
+      ),
     ],
   );
 }

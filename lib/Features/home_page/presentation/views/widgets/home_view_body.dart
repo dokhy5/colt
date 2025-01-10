@@ -3,6 +3,7 @@ import 'package:colt_shop/Features/home_page/presentation/views/widgets/custom_r
 import 'package:colt_shop/Features/home_page/presentation/views/widgets/custom_search_bar.dart';
 import 'package:colt_shop/Features/home_page/presentation/views/widgets/listview_category.dart';
 import 'package:colt_shop/Features/home_page/presentation/views/widgets/top_selling_listview.dart';
+import 'package:colt_shop/core/utils/app_router.dart';
 import 'package:flutter/material.dart';
 
 class HomeViewBody extends StatelessWidget {
@@ -21,12 +22,15 @@ class HomeViewBody extends StatelessWidget {
           const CustomAppbar(),
           const SizedBox(height: 24),
           const CustomSearchBar(),
-          const SizedBox(height: 24),
+    
       
           // Scrollable part
           Expanded(
             child: CustomScrollView(
               slivers: [
+                SliverToBoxAdapter(
+                  child: const SizedBox(height: 24),
+                ),
                 SliverToBoxAdapter(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -39,7 +43,7 @@ class HomeViewBody extends StatelessWidget {
                   child: CustomRowTextWidget(
                     text: 'Categories',
                     onTap: () {
-                      print('Categories');
+                      AppRouter.router.push( AppRouter.kCategories);
                     },
                     text2: 'See All',
                   ),

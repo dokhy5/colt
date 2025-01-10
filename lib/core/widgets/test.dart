@@ -32,7 +32,7 @@ class _BottomNavDashboardState extends State<BottomNavDashboard> {
           borderRadius: BorderRadius.circular(10), // Rounded corners
           child: BottomBarFloating(
             items: items,
-            backgroundColor: const Color.fromARGB(255, 215, 215, 215),
+            backgroundColor:  Color(0xffF4F4F4),
             color: Colors.grey,
             colorSelected: const Color(0xff8E6CEF),
             indexSelected: visit,
