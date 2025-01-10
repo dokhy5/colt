@@ -6,4 +6,7 @@ class AssetsData {
   static const prss = 'assets/images/resend.png';
  static const face = 'assets/images/face.png';
  static const test2 = 'assets/images/test2.png';
+ static const bell = 'assets/images/bell.png';
+ static const chickout = 'assets/images/chickout.png';
+
 }
