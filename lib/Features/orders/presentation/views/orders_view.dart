@@ -1,3 +1,4 @@
+import 'package:colt_shop/Features/orders/presentation/views/widgets/Orders_view_body.dart';
 import 'package:flutter/material.dart';
 
 class OrdersView extends StatelessWidget {
@@ -5,6 +6,10 @@ class OrdersView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return const Scaffold(
+      body: SafeArea(
+        child: OrdersViewBody(),
+      ),
+    );
   }
 }

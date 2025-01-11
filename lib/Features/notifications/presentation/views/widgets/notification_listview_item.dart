@@ -25,7 +25,7 @@ class NotificationListviewItem extends StatelessWidget {
           ),
           Expanded(
             child: Padding(
-              padding: const EdgeInsets.only(right: 15),
+              padding: const EdgeInsets.only(left: 15),
               child: Text(
                 'Gilbert, you placed an order. Check your order history for full details.',
                 overflow: TextOverflow.ellipsis,

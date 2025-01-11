@@ -21,16 +21,7 @@ class OnboardingViewBody extends StatelessWidget {
                 const    SizedBox(height: 46),
                 const    Text('Who do you shop for ?', style: TextStyle(fontSize: 16, ),),
          const  SizedBox(height: 22),
-          const Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-            
-          SelectSexScreen()
-
-            ],
-          
-          ),
+          SelectSexScreen(),
           const SizedBox(height: 56),
           const Text('How Old are you ?', style: TextStyle(fontSize: 16, ),),
          const SizedBox(height: 13),

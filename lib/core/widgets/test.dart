@@ -1,6 +1,7 @@
 import 'package:awesome_bottom_bar/awesome_bottom_bar.dart';
 import 'package:colt_shop/Features/home_page/presentation/views/home_view.dart';
 import 'package:colt_shop/Features/notifications/presentation/views/notifications_view.dart';
+import 'package:colt_shop/Features/orders/presentation/views/orders_view.dart';
 import 'package:flutter/material.dart';
 
 class BottomNavDashboard extends StatefulWidget {
@@ -39,7 +40,8 @@ class _BottomNavDashboardState extends State<BottomNavDashboard> {
             indexSelected: visit,
             onTap: (int index) => setState(() {
               visit = index;
-            }),
+              },
+            ),
           ),
         ),
       ),
@@ -53,7 +55,7 @@ class _BottomNavDashboardState extends State<BottomNavDashboard> {
       case 1:
         return const NotificationsView(); // Wishlist Content
       case 2:
-        return const Center(child: Text('Cart')); // Cart Content
+        return const OrdersView(); // Cart Content
       case 3:
         return const Center(child: Text('Profile')); // Profile Content
       default:
