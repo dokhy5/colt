@@ -2,6 +2,7 @@ import 'package:colt_shop/Features/Splash/presentation/views/splash_view.dart';
 import 'package:colt_shop/Features/home_page/presentation/views/categories_item_view.dart';
 import 'package:colt_shop/Features/home_page/presentation/views/categories_view.dart';
 import 'package:colt_shop/Features/home_page/presentation/views/home_view.dart';
+import 'package:colt_shop/Features/orders/presentation/views/order_information_view.dart';
 import 'package:colt_shop/Features/sign_in/presentation/views/signin_view.dart';
 import 'package:colt_shop/Features/sign_up/presentation/views/forgot_password_view.dart';
 import 'package:colt_shop/Features/sign_up/presentation/views/onboarding_view.dart';
@@ -21,6 +22,7 @@ abstract class AppRouter {
   static const kTest = '/test';
   static const kCategories = '/Categories_View';
   static const kCategoriesItem = '/Categories_Item_View';
+  static const kOrderInformation = '/Order_Information_View';
 
   static final GoRouter router = GoRouter(
     routes: [
@@ -53,7 +55,7 @@ abstract class AppRouter {
         builder: (context, state) => const HomeView(),
       ),
       GoRoute(
-        path: kTest, // مسار شاشة الـ BottomNavDashboard
+        path: kTest,
         builder: (context, state) {
           return const BottomNavDashboard();
         },
@@ -65,6 +67,10 @@ abstract class AppRouter {
       GoRoute(
         path: kCategoriesItem,
         builder: (context, state) => const CategoriesItemView(),
+      ),
+      GoRoute(
+        path: kOrderInformation,
+        builder: (context, state) => const OrderInformationView(),
       ),
     ],
   );

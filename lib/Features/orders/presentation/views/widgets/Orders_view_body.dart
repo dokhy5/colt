@@ -1,15 +1,7 @@
 import 'package:colt_shop/Features/orders/presentation/views/widgets/order_listview.dart';
 import 'package:colt_shop/Features/orders/presentation/views/widgets/order_listview_item.dart';
 import 'package:colt_shop/Features/orders/presentation/views/widgets/order_status_row.dart';
-import 'package:colt_shop/core/utils/app_router.dart';
-import 'package:colt_shop/core/utils/assets.dart';
-import 'package:colt_shop/core/widgets/button_back_custom.dart';
-import 'package:colt_shop/core/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:get/get.dart';
-import 'package:go_router/go_router.dart';
-
 class OrdersViewBody extends StatefulWidget {
   const OrdersViewBody({super.key});
 
@@ -45,12 +37,10 @@ class _OrdersViewBodyState extends State<OrdersViewBody> {
           const SizedBox(
             height: 40,
           ),
-          const ButtonBackCustom(),
-          const SizedBox(
-            height: 16,
-          ),
+          
           const Text(
             'Orders',
+            textAlign: TextAlign.center,
             style: TextStyle(
               fontSize: 16,
               fontWeight: FontWeight.bold,
@@ -63,7 +53,7 @@ class _OrdersViewBodyState extends State<OrdersViewBody> {
           // Add order status row and pass the callback function
           OrderStatusRow(onSelect: _onSelect), // Adjusted to pass callback
           const SizedBox(
-            height: 20,
+            height: 24,
           ),
           // Add a scrollable content section with a properly constrained height
           Expanded(

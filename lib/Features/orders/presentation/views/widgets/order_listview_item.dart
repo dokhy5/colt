@@ -1,5 +1,7 @@
+import 'package:colt_shop/core/utils/app_router.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:go_router/go_router.dart';
 
 class OrderListviewItem extends StatelessWidget {
   const OrderListviewItem({super.key});
@@ -8,7 +10,7 @@ class OrderListviewItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        // Define your action here
+        GoRouter.of(context).push(AppRouter.kOrderInformation);
       },
       child: Container(
         height: 72,

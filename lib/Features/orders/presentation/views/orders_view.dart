@@ -1,4 +1,4 @@
-import 'package:colt_shop/Features/orders/presentation/views/widgets/Orders_view_body.dart';
+import 'package:colt_shop/Features/orders/presentation/views/widgets/orders_view_body.dart';
 import 'package:flutter/material.dart';
 
 class OrdersView extends StatelessWidget {
