@@ -1,0 +1,26 @@
+# Run the command below to generate launcher icons:
+# flutter pub run flutter_launcher_icons
+
+flutter_launcher_icons:
+  image_path: "assets/images/clot1.png"
+
+  android: true # Specifies that the launcher icon should be generated for Android
+  # ios: true # Specifies that the launcher icon should be generated for iOS
+
+  adaptive_icon_background: "assets/images/clot1.png" # Background for Android adaptive icons
+  adaptive_icon_foreground: "assets/images/clot2.png" # Foreground for Android adaptive icons (optional)
+  adaptive_icon_foreground_inset: 16 # Padding for Android adaptive icons (optional)
+  adaptive_icon_monochrome: "assets/images/clot2.png" # Monochrome icon for Android 13+ devices (optional)
+  min_sdk_android: 21 # Minimum SDK version for Android (default is 21)
+  
+
+  # Uncomment and customize the following for iOS:
+  # remove_alpha_ios: true # Removes the alpha channel for iOS icons
+  # background_color_ios: "#ffffff" # Background color for iOS icons if transparency is removed
+
+  # Uncomment and customize the following for web (if needed):
+  # web:
+  #   generate: true
+  #   image_path: "assets/images/clot1.png"
+  #   background_color: "#ffffff" # Background color for web
+  #   theme_color: "#ffffff" # Theme color for the web
