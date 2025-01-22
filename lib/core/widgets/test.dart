@@ -1,5 +1,6 @@
 import 'package:awesome_bottom_bar/awesome_bottom_bar.dart';
 import 'package:colt_shop/Features/home_page/presentation/views/home_view.dart';
+import 'package:colt_shop/Features/info/presentation/views/info_view.dart';
 import 'package:colt_shop/Features/notifications/presentation/views/notifications_view.dart';
 import 'package:colt_shop/Features/orders/presentation/views/orders_view.dart';
 import 'package:flutter/material.dart';
@@ -57,7 +58,7 @@ class _BottomNavDashboardState extends State<BottomNavDashboard> {
       case 2:
         return const OrdersView(); // Cart Content
       case 3:
-        return const Center(child: Text('Profile')); // Profile Content
+        return const InfoView(); // Profile Content
       default:
         return const HomeView(); // Default to Home
     }
