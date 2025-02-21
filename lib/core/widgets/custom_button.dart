@@ -12,10 +12,10 @@ final VoidCallback  onPressed;
       child: TextButton(
         onPressed: onPressed,
         style: TextButton.styleFrom(
+          
           backgroundColor: kSecondaryColor,
           shape: RoundedRectangleBorder(  
             borderRadius: BorderRadius.circular(30), 
-             
           ),  
         ),
         child:  Text(

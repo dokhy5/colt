@@ -1,4 +1,6 @@
 import 'package:colt_shop/Features/Splash/presentation/views/splash_view.dart';
+import 'package:colt_shop/Features/address/presentation/views/add_address_view.dart';
+import 'package:colt_shop/Features/address/presentation/views/address_view.dart';
 import 'package:colt_shop/Features/home_page/presentation/views/categories_item_view.dart';
 import 'package:colt_shop/Features/home_page/presentation/views/categories_view.dart';
 import 'package:colt_shop/Features/home_page/presentation/views/home_view.dart';
@@ -23,6 +25,8 @@ abstract class AppRouter {
   static const kCategories = '/Categories_View';
   static const kCategoriesItem = '/Categories_Item_View';
   static const kOrderInformation = '/Order_Information_View';
+  static const kAddress = '/Address_View';
+  static const kAddAddress = '/Add_Address_View';
 
   static final GoRouter router = GoRouter(
     routes: [
@@ -71,6 +75,15 @@ abstract class AppRouter {
       GoRoute(
         path: kOrderInformation,
         builder: (context, state) => const OrderInformationView(),
+      ),
+     
+        GoRoute(
+        path: kAddress,
+        builder: (context, state) => const AddressView(),
+      ),
+       GoRoute(
+        path: kAddAddress,
+        builder: (context, state) => const AddAddressView(),
       ),
     ],
   );

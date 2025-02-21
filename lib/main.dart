@@ -1,18 +1,17 @@
-
-import 'package:colt_shop/constants.dart';
 import 'package:colt_shop/core/utils/app_router.dart';
-import 'package:colt_shop/core/widgets/test.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-void main() {
-  runApp(const MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  final SharedPreferences prefs = await SharedPreferences.getInstance();
+  runApp(MyApp(prefs: prefs));
 }
 
-
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  final SharedPreferences prefs;
+  const MyApp({super.key, required this.prefs});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
@@ -21,19 +20,6 @@ class MyApp extends StatelessWidget {
         scaffoldBackgroundColor: Colors.white,
       ),
       debugShowCheckedModeBanner: false,
-      
     );
-    // return MaterialApp(
-    //   title: 'Colt Shop',
-    //   theme: ThemeData(
-    //     primarySwatch: Colors.blue,
-    //     visualDensity: VisualDensity.adaptivePlatformDensity,
-    //   ),
-    //   home: const Scaffold(
-    //     body: SafeArea(
-    //       child: BottomNavDashboard(),
-    //     ),
-    //   ),
-    // );
   }
 }
