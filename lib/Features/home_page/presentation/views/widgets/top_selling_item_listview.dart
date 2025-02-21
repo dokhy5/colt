@@ -1,6 +1,8 @@
 import 'package:colt_shop/core/utils/assets.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'dart:convert';
 
 class TopSellingItemListView extends StatefulWidget {
   const TopSellingItemListView({super.key});
@@ -10,8 +12,51 @@ class TopSellingItemListView extends StatefulWidget {
 }
 
 class _TopSellingItemListViewState extends State<TopSellingItemListView> {
-  // Boolean variable to track whether the icon is pressed or not
   bool isPressed = false;
+  final String itemName = "Men's Harrington Jacket";
+  final String itemPrice = "\$148.00";
+  final String itemImage = AssetsData.test2;
+
+  @override
+  void initState() {
+    super.initState();
+    _loadWishlistStatus();
+  }
+
+  // Load the wishlist status
+  Future<void> _loadWishlistStatus() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    List<String> wishlist = prefs.getStringList('wishlist') ?? [];
+
+    setState(() {
+      isPressed = wishlist.contains(itemName); 
+    });
+  }
+
+  // Toggle wishlist item
+  Future<void> _toggleWishlist() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    List<String> wishlist = prefs.getStringList('wishlist') ?? [];
+
+    if (isPressed) {
+      // Remove from wishlist
+      wishlist.remove(itemName);
+    } else {
+      // Add to wishlist
+      Map<String, String> item = {
+        "name": itemName,
+        "price": itemPrice,
+        "image": itemImage,
+      };
+      wishlist.add(jsonEncode(item)); 
+    }
+
+    await prefs.setStringList('wishlist', wishlist);
+
+    setState(() {
+      isPressed = !isPressed;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -31,11 +76,10 @@ class _TopSellingItemListViewState extends State<TopSellingItemListView> {
                     height: 180,
                     width: 159,
                     child: Image.asset(
-                      AssetsData.test2, 
+                      itemImage,
                       height: 180,
                       width: 159,
                       fit: BoxFit.fill,
-                    
                     ),
                   ),
                   Positioned(
@@ -43,18 +87,12 @@ class _TopSellingItemListViewState extends State<TopSellingItemListView> {
                     right: 6,
                     child: IconButton(
                       icon: FaIcon(
-                        // Toggle between heart and heart-filled icons
                         isPressed
                             ? FontAwesomeIcons.solidHeart
                             : FontAwesomeIcons.heart,
-                        color: isPressed ? Colors.red : Colors.black, // Change color when pressed
+                        color: isPressed ? Colors.red : Colors.black,
                       ),
-                      onPressed: () {
-                        setState(() {
-                          // Toggle the icon state to change color and icon
-                          isPressed = !isPressed;
-                        });
-                      },
+                      onPressed: _toggleWishlist,
                     ),
                   ),
                 ],
@@ -65,18 +103,18 @@ class _TopSellingItemListViewState extends State<TopSellingItemListView> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Text(
-                      'Men\'s Harrington Jacket',
+                    Text(
+                      itemName,
                       textAlign: TextAlign.left,
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontSize: 12,
                         color: Colors.black,
                       ),
                     ),
                     const SizedBox(height: 8),
-                    const Text(
-                      '\$148.00',
-                      style: TextStyle(
+                    Text(
+                      itemPrice,
+                      style: const TextStyle(
                         fontSize: 14,
                         fontWeight: FontWeight.bold,
                         color: Colors.black,

@@ -18,7 +18,7 @@ class MenuForMe extends StatelessWidget {
           context,
           icon: Icons.favorite_border,
           text: 'Wishlist',
-          onTap: () => _navigateToPage(context, const WishlistPage()),
+          onTap: () => AppRouter.router.push( AppRouter.kWishlist),
         ),
         _buildMenuItem(
           context,
