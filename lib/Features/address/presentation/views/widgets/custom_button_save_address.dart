@@ -19,7 +19,12 @@ class CustomButtonSaveAddress extends StatelessWidget {
         child: SizedBox(
           width: double.infinity,
           child: ElevatedButton(
-            onPressed: isButtonEnabled ? onSave : null,
+            onPressed: isButtonEnabled
+                ? () {
+                    onSave(); // Save the address
+                    Navigator.pop(context); // Return to previous screen
+                  }
+                : null,
             style: ElevatedButton.styleFrom(
               backgroundColor: isButtonEnabled ? Colors.deepPurpleAccent : Colors.grey,
               padding: const EdgeInsets.symmetric(vertical: 16),

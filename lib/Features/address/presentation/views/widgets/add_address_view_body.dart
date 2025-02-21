@@ -50,7 +50,7 @@ class _AddAddressViewBodyState extends State<AddAddressViewBody> {
     await prefs.setStringList('addresses', addresses);
     _loadSavedData(); // إعادة تحميل القائمة
     ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(content: Text('Address saved successfully!')),
+      const SnackBar(content: Text('Address saved successfully!'),backgroundColor: Colors.green,),
     );
   }
 

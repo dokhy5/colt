@@ -20,6 +20,7 @@ class _AddressViewBodyState extends State<AddressViewBody> {
     _loadSavedAddresses();
   }
 
+  /// Load saved addresses from SharedPreferences
   Future<void> _loadSavedAddresses() async {
     final prefs = await SharedPreferences.getInstance();
     setState(() {
@@ -27,42 +28,13 @@ class _AddressViewBodyState extends State<AddressViewBody> {
     });
   }
 
+  /// Remove an address and update SharedPreferences
   Future<void> _removeAddress(int index) async {
     final prefs = await SharedPreferences.getInstance();
     setState(() {
       _savedAddresses.removeAt(index);
       prefs.setStringList('addresses', _savedAddresses);
     });
-  }
-
-  Widget _buildAddressCard(String address, int index) {
-    return Container(
-      margin: const EdgeInsets.symmetric(vertical: 8),
-      padding: const EdgeInsets.all(16),
-      decoration: BoxDecoration(
-        color: Colors.grey.shade200,
-        borderRadius: BorderRadius.circular(12),
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Expanded(
-            child: Text(
-              address,
-              style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
-              overflow: TextOverflow.ellipsis,
-            ),
-          ),
-          GestureDetector(
-            onTap: () => _removeAddress(index),
-            child: const Text(
-              'Remove',
-              style: TextStyle(color: Colors.red, fontWeight: FontWeight.bold),
-            ),
-          ),
-        ],
-      ),
-    );
   }
 
   @override
@@ -86,7 +58,7 @@ class _AddressViewBodyState extends State<AddressViewBody> {
                   color: Colors.black,
                 ),
               ),
-              const SizedBox(width: 48),
+              const SizedBox(width: 48), // Placeholder for symmetry
             ],
           ),
           const SizedBox(height: 20),
@@ -96,7 +68,10 @@ class _AddressViewBodyState extends State<AddressViewBody> {
                 : ListView.builder(
                     itemCount: _savedAddresses.length,
                     itemBuilder: (context, index) {
-                      return _buildAddressCard(_savedAddresses[index], index);
+                      return AddressCard(
+                        address: _savedAddresses[index],
+                        onRemove: () => _removeAddress(index),
+                      );
                     },
                   ),
           ),
@@ -105,10 +80,54 @@ class _AddressViewBodyState extends State<AddressViewBody> {
             text: 'Add Address',
             onPressed: () async {
               await AppRouter.router.push(AppRouter.kAddAddress);
-              _loadSavedAddresses(); // Reload addresses after returning
+              // Delay ensures SharedPreferences is updated before UI refresh
+              Future.delayed(const Duration(milliseconds: 500), _loadSavedAddresses);
             },
           ),
           const SizedBox(height: 20),
+        ],
+      ),
+    );
+  }
+}
+
+/// AddressCard Widget for better code organization
+class AddressCard extends StatelessWidget {
+  final String address;
+  final VoidCallback onRemove;
+
+  const AddressCard({
+    Key? key,
+    required this.address,
+    required this.onRemove,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: const EdgeInsets.symmetric(vertical: 8),
+      padding: const EdgeInsets.all(16),
+      decoration: BoxDecoration(
+        color: Colors.grey.shade200,
+        borderRadius: BorderRadius.circular(12),
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Expanded(
+            child: Text(
+              address,
+              style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+              overflow: TextOverflow.ellipsis,
+            ),
+          ),
+          GestureDetector(
+            onTap: onRemove,
+            child: const Text(
+              'Remove',
+              style: TextStyle(color: Colors.red, fontWeight: FontWeight.bold),
+            ),
+          ),
         ],
       ),
     );
