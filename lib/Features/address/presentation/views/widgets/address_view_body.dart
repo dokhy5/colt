@@ -81,7 +81,7 @@ class _AddressViewBodyState extends State<AddressViewBody> {
             onPressed: () async {
               await AppRouter.router.push(AppRouter.kAddAddress);
               // Delay ensures SharedPreferences is updated before UI refresh
-              Future.delayed(const Duration(milliseconds: 500), _loadSavedAddresses);
+              Future.delayed(const Duration(milliseconds: 300), _loadSavedAddresses);
             },
           ),
           const SizedBox(height: 20),

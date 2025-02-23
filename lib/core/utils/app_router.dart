@@ -5,6 +5,7 @@ import 'package:colt_shop/Features/address/presentation/views/address_view.dart'
 import 'package:colt_shop/Features/home_page/presentation/views/categories_item_view.dart';
 import 'package:colt_shop/Features/home_page/presentation/views/categories_view.dart';
 import 'package:colt_shop/Features/home_page/presentation/views/home_view.dart';
+import 'package:colt_shop/Features/item_page/presentation/views/item_page_view.dart';
 import 'package:colt_shop/Features/orders/presentation/views/order_information_view.dart';
 import 'package:colt_shop/Features/sign_in/presentation/views/signin_view.dart';
 import 'package:colt_shop/Features/sign_up/presentation/views/forgot_password_view.dart';
@@ -29,6 +30,7 @@ abstract class AppRouter {
   static const kAddress = '/Address_View';
   static const kAddAddress = '/Add_Address_View';
   static const kWishlist = '/Wishlist_View';
+  static const kItemPage = '/ItemPage_View';
 
   static final GoRouter router = GoRouter(
     routes: [
@@ -88,7 +90,12 @@ abstract class AppRouter {
         builder: (context, state) => const AddAddressView(),
       ),
       GoRoute(path: kWishlist,
-       builder: (context, state) => const WishlistView()),
+       builder: (context, state) => const WishlistView(),
+       ),
+       GoRoute(
+        path: kItemPage,
+        builder: (context, state) => const ItemPageView(),
+      ),
     ],
   );
 }
