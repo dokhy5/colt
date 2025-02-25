@@ -8,5 +8,5 @@ class AssetsData {
  static const test2 = 'assets/images/test2.png';
  static const bell = 'assets/images/bell.png';
  static const chickout = 'assets/images/chickout.png';
-
+ static const cart = 'assets/images/cart.png';
 }

@@ -22,23 +22,16 @@ class HomeViewBody extends StatelessWidget {
           const CustomAppbar(),
           const SizedBox(height: 24),
           const CustomSearchBar(),
-    
+                            const SizedBox(height: 24),
+
       
           // Scrollable part
           Expanded(
             child: CustomScrollView(
               slivers: [
-                SliverToBoxAdapter(
-                  child: const SizedBox(height: 24),
-                ),
-                SliverToBoxAdapter(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      
-                    ],
-                  ),
-                ),
+              
+               
+                  
                 SliverToBoxAdapter(
                   child: CustomRowTextWidget(
                     text: 'Categories',
@@ -65,6 +58,10 @@ class HomeViewBody extends StatelessWidget {
                     },
                     text2: 'See All',
                   ),
+                  
+                ),
+                                SliverToBoxAdapter(
+                  child: SizedBox(height: 24,),
                 ),
                 SliverToBoxAdapter(
                   child: TopSellingListView(),
@@ -86,6 +83,9 @@ class HomeViewBody extends StatelessWidget {
                 ),
                   SliverToBoxAdapter(
                   child: TopSellingListView(),
+                ),
+                SliverToBoxAdapter(
+                  child: SizedBox(height: 24,),
                 ),
               ],
             ),

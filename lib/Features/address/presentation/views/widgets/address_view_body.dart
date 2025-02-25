@@ -1,7 +1,9 @@
+import 'package:colt_shop/Features/address/presentation/views/widgets/address_card.dart';
 import 'package:colt_shop/core/utils/app_router.dart';
 import 'package:colt_shop/core/widgets/button_back_custom.dart';
 import 'package:colt_shop/core/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class AddressViewBody extends StatefulWidget {
@@ -91,45 +93,4 @@ class _AddressViewBodyState extends State<AddressViewBody> {
   }
 }
 
-/// AddressCard Widget for better code organization
-class AddressCard extends StatelessWidget {
-  final String address;
-  final VoidCallback onRemove;
 
-  const AddressCard({
-    Key? key,
-    required this.address,
-    required this.onRemove,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.symmetric(vertical: 8),
-      padding: const EdgeInsets.all(16),
-      decoration: BoxDecoration(
-        color: Colors.grey.shade200,
-        borderRadius: BorderRadius.circular(12),
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Expanded(
-            child: Text(
-              address,
-              style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
-              overflow: TextOverflow.ellipsis,
-            ),
-          ),
-          GestureDetector(
-            onTap: onRemove,
-            child: const Text(
-              'Remove',
-              style: TextStyle(color: Colors.red, fontWeight: FontWeight.bold),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}

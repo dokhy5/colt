@@ -1,3 +1,4 @@
+import 'package:colt_shop/core/utils/app_router.dart';
 import 'package:colt_shop/core/utils/assets.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -24,7 +25,9 @@ class CustomAppbar extends StatelessWidget {
           ),
         ),
         GestureDetector(
-          onTap: () {},
+          onTap: () {
+            AppRouter.router.push(AppRouter.kCart);
+          },
 
           child: const SizedBox(
             
