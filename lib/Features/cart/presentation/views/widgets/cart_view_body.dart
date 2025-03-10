@@ -43,10 +43,11 @@ class _CartViewBodyState extends State<CartViewBody> {
   }
 
   void _clearCart() async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.remove('cart'); // Clear saved cart data
     setState(() {
-      cartItems.clear();
+      cartItems.clear(); // Update UI
     });
-    await _saveCart();
   }
 
   double _calculateSubtotal() {

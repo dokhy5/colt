@@ -4,6 +4,7 @@ import 'package:colt_shop/Features/address/presentation/views/add_address_view.d
 import 'package:colt_shop/Features/address/presentation/views/address_view.dart';
 import 'package:colt_shop/Features/cart/presentation/views/cart_view.dart';
 import 'package:colt_shop/Features/cart/presentation/views/checkout_view.dart';
+import 'package:colt_shop/Features/cart/presentation/views/successfully_view.dart';
 import 'package:colt_shop/Features/home_page/presentation/views/categories_item_view.dart';
 import 'package:colt_shop/Features/home_page/presentation/views/categories_view.dart';
 import 'package:colt_shop/Features/home_page/presentation/views/home_view.dart';
@@ -35,8 +36,7 @@ abstract class AppRouter {
   static const kItemPage = '/ItemPage_View';
   static const kCart = '/Cart_View';
   static const kCheckout = '/Checkout_View';
-  
-
+  static const kSuccessfully = '/Successfully_View';  
   static final GoRouter router = GoRouter(
     routes: [
       GoRoute(
@@ -118,6 +118,10 @@ abstract class AppRouter {
         );
       },
     ),
+    GoRoute(
+        path: kSuccessfully,
+        builder: (context, state) => const SuccessfullyView(),
+      ),
     ],
   );
 }

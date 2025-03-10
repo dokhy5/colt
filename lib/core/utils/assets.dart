@@ -9,4 +9,5 @@ class AssetsData {
  static const bell = 'assets/images/bell.png';
  static const chickout = 'assets/images/chickout.png';
  static const cart = 'assets/images/cart.png';
+ static const kSuccessfully = 'assets/images/successfully.png';
 }
